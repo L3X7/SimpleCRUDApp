@@ -1,0 +1,57 @@
+﻿@model IEnumerable<SimpleCRUDApp.Models.Users>
+@{
+    ViewBag.Title = "Entity Framework";
+}
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="page-header">CRUD with only Entity Framework</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-list-alt fa-fw"></i>
+                Forms
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-1" id="hdn-create">
+                        <button class="btn btn-primary" type="button" aria-label="Left Align" onclick="CreateNew()">
+                            <span class="fa fa-plus" aria-hidden="true"></span>
+                            Create New
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div id="formNew" style="margin-top:20px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-table fa-fw"></i>
+                Table
+            </div>
+            <div class="panel-body" id="lst-users">
+                @Html.Partial("List", Model)
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        $(function () {
+            $('#datatable-user').DataTable({
+                responsive: true
+            });
+        });
+    </script>
+<script src="~/Scripts/js/index.js"></script>
+}
